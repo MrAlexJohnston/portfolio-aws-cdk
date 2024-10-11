@@ -14,7 +14,7 @@ export class VpcStack extends cdk.Stack {
 
     // Create a VPC with public and private subnets
     const vpc = new ec2.Vpc(this, vpcName, {
-      maxAzs: 3,
+      availabilityZones: ['eu-west-2a', 'eu-west-2b', 'eu-west-2c'],
       subnetConfiguration: [
         {
           cidrMask: 24,
@@ -72,7 +72,6 @@ export class VpcStack extends cdk.Stack {
       description: 'Comma-separated list of Private Subnet IDs',
       exportName: `${vpcName}PrivateSubnetIds`,
     });
-
-
+    
   }
 }

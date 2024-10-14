@@ -2,15 +2,15 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 
-interface CustomProps {
+interface VpcStackProps extends cdk.StackProps {
   vpcName: string;
 }
 
 export class VpcStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, customProps: CustomProps, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: VpcStackProps) {
     super(scope, id, props);
 
-    const { vpcName } = customProps;
+    const { vpcName } = props;
 
     // Create a VPC with public and private subnets
     const vpc = new ec2.Vpc(this, vpcName, {

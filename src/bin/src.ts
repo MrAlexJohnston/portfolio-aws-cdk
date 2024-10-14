@@ -12,7 +12,7 @@ new VpcStack(app, vpcName, {
   vpcName,
 });
 
-new NginxEcsStack(app, "NginxEcsStack", {
+new NginxEcsStack(app, "NginxEcs", {
   vpcName,
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,

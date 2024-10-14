@@ -2,7 +2,6 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
-// import * as elbv2 from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import * as ecsPatterns from 'aws-cdk-lib/aws-ecs-patterns';
 
 interface NginxEcsStackProps extends cdk.StackProps {

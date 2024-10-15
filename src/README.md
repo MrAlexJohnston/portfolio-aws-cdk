@@ -56,6 +56,7 @@ This project showcases the use of AWS CDK (Cloud Development Kit) to define clou
 - High availability database cluster
 - Machine learning inference pipeline
 - Disaster recovery solution
+- Elastic Cloud connection
 
 ## Requirements
 

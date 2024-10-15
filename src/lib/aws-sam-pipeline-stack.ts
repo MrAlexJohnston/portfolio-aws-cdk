@@ -81,7 +81,7 @@ export class AwsSamPipelineStack extends cdk.Stack {
     const deployAction = new codepipeline_actions.CloudFormationCreateUpdateStackAction({
       actionName: 'Deploy',
       templatePath: buildOutput.atPath('packaged.yaml'),
-      stackName: 'portfolio-aws-sam',
+      stackName: 'PortfolioAwsSam',
       adminPermissions: true,
       cfnCapabilities: [
         cdk.CfnCapabilities.AUTO_EXPAND,

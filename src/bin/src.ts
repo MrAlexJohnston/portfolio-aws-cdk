@@ -4,6 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { VpcStack } from '../lib/vpc-stack';
 import { NginxEcsStack } from '../lib/nginx-ecs-stack';
 import { AwsSamPipelineStack } from '../lib/aws-sam-pipeline-stack';
+import { AwsAmplifyStack } from '../lib/aws-amplify-stack';
 
 const vpcName = 'CdkVpc';
 
@@ -24,3 +25,5 @@ new NginxEcsStack(app, "NginxEcs", {
 new AwsSamPipelineStack(app, "AwsSamPipeline", {
   vpcName,
 });
+
+new AwsAmplifyStack(app, "AwsAmplify", {});

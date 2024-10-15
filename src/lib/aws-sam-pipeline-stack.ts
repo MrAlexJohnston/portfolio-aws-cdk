@@ -46,7 +46,7 @@ export class AwsSamPipelineStack extends cdk.Stack {
           value: artifactBucket.bucketName,
         },
         'AWS_REGION': {
-          value: 'eu-west-2'  // Don't make hardcoded
+          value: 'eu-west-2'
         }
       },
     });

@@ -6,9 +6,15 @@ import * as codepipeline_actions from 'aws-cdk-lib/aws-codepipeline-actions';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 
+interface AwsSamPipelineStackProps extends cdk.StackProps {
+  vpcName: string;
+}
+
 export class AwsSamPipelineStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: AwsSamPipelineStackProps) {
     super(scope, id, props);
+
+    const { vpcName } = props;
 
     const artifactBucket = new s3.Bucket(this, 'ArtifactBucket', {
       bucketName: `portfolio-aws-sam-bucket-${this.account}-${this.region}`,
@@ -80,7 +86,13 @@ export class AwsSamPipelineStack extends cdk.Stack {
       cfnCapabilities: [
         cdk.CfnCapabilities.AUTO_EXPAND,
         cdk.CfnCapabilities.NAMED_IAM
-      ]
+      ],
+      parameterOverrides: {
+        SecurityGroupId: cdk.Fn.importValue(`${vpcName}LambdaSecurityGroupId`),
+        SubnetId1: cdk.Fn.importValue(`${vpcName}PrivateSubnet1Id`),
+        SubnetId2: cdk.Fn.importValue(`${vpcName}PrivateSubnet2Id`),
+        SubnetId3: cdk.Fn.importValue(`${vpcName}PrivateSubnet3Id`)
+      }
     });
 
     pipeline.addStage({

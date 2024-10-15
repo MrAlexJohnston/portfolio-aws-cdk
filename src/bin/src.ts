@@ -22,4 +22,5 @@ new NginxEcsStack(app, "NginxEcs", {
 });
 
 new AwsSamPipelineStack(app, "AwsSamPipeline", {
+  vpcName,
 });

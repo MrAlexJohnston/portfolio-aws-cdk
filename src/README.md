@@ -50,6 +50,7 @@ This project showcases the use of AWS CDK (Cloud Development Kit) to define clou
 
 ## Future Work
 
+- Autoscaling on Nginx
 - Website deployment - AWS Amplify?
 - EKS
 - Serverless event-driven architecture

@@ -24,7 +24,7 @@ export class AwsSamPipelineStack extends cdk.Stack {
 
     // Create a CodePipeline
     const pipeline = new codepipeline.Pipeline(this, 'Pipeline', {
-      pipelineName: 'MyServerlessPipeline',
+      pipelineName: 'PortfolioAwsSamPipeline',
     });
 
     // Add source stage
